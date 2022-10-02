@@ -1,0 +1,48 @@
+// base ulr
+@baseurl = http://localhost:22052
+
+### this line will get the variable login from login request, no need to copy/paste token anymore
+@token = {{login.response.body.$.token}}
+
+
+### USER SIGNUP
+POST {{baseurl}}/todoapp/signup
+Content-Type: application/json; charset=utf-8
+
+{
+    "title": "Engr",
+    "fname": "Ryan",
+    "lname": "Montemayor",
+    "address": "Dampe, Floridablanca, Pampanga",
+    "phone": "09479757016",
+    "email": "ryan23montemayor@yahoo.com",
+    "pass": "12345678"
+}
+
+
+### USER LOGIN
+# @name login
+POST {{baseurl}}/todoapp/login
+Content-Type: application/json; charset=utf-8
+
+{
+    "email": "ryan23montemayor@yahoo.com",
+    "pass": "12345678"
+}
+
+
+### USER ADD TODO
+POST {{baseurl}}/todoapp/add
+Content-Type: application/json; charset=utf-8
+Authorization: Bearer {{token}}
+
+{
+    "title": "Title A",
+    "message": "Something to do",
+    "datetime": "2022-10-01 08:00:00"
+}
+
+
+### USER LIST TODO
+GET {{baseurl}}/todoapp/list?page=1&size=10&title=
+Authorization: Bearer {{token}}
