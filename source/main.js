@@ -54,20 +54,3 @@ process.on('SIGINT', () => {
 process.on('exit', () => {
     console.log("EXITING");
 });
-
-
-const bcrypt = require("bcrypt");
-
-/* bcrypt.genSalt(10, (err, salt) => {
-    console.log(err, salt);
-    bcrypt.hash("12345678", salt, (err, hash) => {
-        console.log(hash);
-    });
-}); */
-/* bcrypt.hash("12345678", 10, (err, hash) => {
-    console.log(hash);
-
-    bcrypt.compare("12345678", hash, (err, result) => {
-        console.log(result);
-    });
-}); */
